@@ -1,0 +1,87 @@
+.console-nav {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 24px;
+}
+
+.console-nav__link {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+}
+
+.console-nav__link.router-link-active {
+  color: var(--ink);
+  background: rgba(62, 224, 197, 0.12);
+  border-color: transparent;
+}
+
+.detect__toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.detect__file {
+  display: none;
+}
+
+.detect__hint {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.detect__frames {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.detect__frame {
+  margin: 0;
+}
+
+.detect__frame figcaption {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.detect__canvas {
+  height: min(480px, 56vw);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: var(--ink-soft);
+}
+
+.detect__canvas img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.detect__info {
+  margin-top: 16px;
+  min-height: 120px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--card);
+  color: var(--ink);
+  white-space: pre-wrap;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 800px) {
+  .detect__frames {
+    grid-template-columns: 1fr;
+  }
+}

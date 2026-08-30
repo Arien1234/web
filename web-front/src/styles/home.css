@@ -1,0 +1,152 @@
+.hero {
+  padding: 72px 0 48px;
+}
+
+.hero__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.hero__kicker {
+  color: var(--accent);
+  letter-spacing: 0.28em;
+  font-size: 12px;
+  margin: 0 0 16px;
+}
+
+.hero__title {
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 68px);
+  line-height: 1.15;
+  margin: 0 0 18px;
+}
+
+.hero__desc {
+  color: var(--ink-soft);
+  font-size: 18px;
+  max-width: 520px;
+  margin: 0 0 28px;
+}
+
+.hero__actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero__panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 28px;
+  box-shadow: var(--shadow);
+  min-height: 320px;
+}
+
+.hero__row {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.hero__row strong {
+  font-family: var(--serif);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px;
+}
+
+.stat-card strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 28px;
+}
+
+.feature-grid,
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.feature-card,
+.service-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card:hover,
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.feature-card h3,
+.service-card h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+}
+
+.feature-card p,
+.service-card p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.cta {
+  background: #0e1a2c;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.cta h2 {
+  font-family: var(--serif);
+  margin: 0 0 8px;
+}
+
+.cta p {
+  margin: 0;
+  opacity: 0.78;
+}
+
+.cta .btn--primary {
+  background: var(--accent);
+}
+
+@media (max-width: 900px) {
+  .hero__grid,
+  .stats,
+  .feature-grid,
+  .service-grid,
+  .cta {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .cta {
+    padding: 32px 24px;
+  }
+}

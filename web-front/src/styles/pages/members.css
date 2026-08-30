@@ -1,0 +1,49 @@
+.members__create {
+  margin-bottom: 28px;
+  max-width: 480px;
+}
+
+.members__create h3 {
+  margin: 0 0 12px;
+}
+
+.members__table-wrap {
+  overflow-x: auto;
+}
+
+.members__table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.members__table th,
+.members__table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.members__table th {
+  color: var(--ink-soft);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.members__table input {
+  width: 100%;
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.members__table .btn {
+  margin-right: 6px;
+  margin-bottom: 4px;
+}

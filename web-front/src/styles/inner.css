@@ -1,0 +1,149 @@
+.inner-page {
+  padding-bottom: 80px;
+}
+
+.page-hero {
+  padding: 64px 0 24px;
+}
+
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 5vw, 52px);
+  margin: 0 0 12px;
+}
+
+.page-hero p {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 640px;
+}
+
+.timeline {
+  display: grid;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 16px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line);
+}
+
+.timeline__item b {
+  color: var(--accent);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 28px;
+  margin-top: 36px;
+}
+
+.contact-card,
+.contact-form {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.contact-card p {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+}
+
+.contact-form label {
+  display: block;
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+.password-field {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.password-field input {
+  margin-bottom: 0;
+  padding-right: 72px;
+}
+
+.password-field__toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 4px 6px;
+}
+
+.form-ok {
+  color: var(--accent);
+  margin: 0 0 12px;
+}
+
+.form-error {
+  color: #ff8b8b;
+  margin: 0 0 12px;
+}
+
+.login-box {
+  max-width: 440px;
+  margin: 24px auto 0;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  padding: 36px 32px;
+  box-shadow: var(--shadow);
+}
+
+.login-box h1 {
+  font-family: var(--serif);
+  margin: 0 0 8px;
+}
+
+.login-box__lead {
+  color: var(--ink-soft);
+  margin: 0 0 24px;
+}
+
+.login-form .btn {
+  width: 100%;
+}
+
+.login-box__switch {
+  margin: 18px 0 0;
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 14px;
+}
+
+.login-box__switch a {
+  color: var(--accent);
+}
+
+@media (max-width: 800px) {
+  .contact-grid,
+  .timeline__item {
+    grid-template-columns: 1fr;
+  }
+}
