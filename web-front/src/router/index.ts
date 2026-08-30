@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import SiteLayout from '@/layouts/SiteLayout.vue'
-import { getCachedRole, getToken } from '@/utils/token'
+import { getCachedRole, getRoleFromToken, getToken } from '@/utils/token'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -62,6 +62,12 @@ const router = createRouter({
               component: () => import('@/views/MembersView.vue'),
               meta: { auth: true, admin: true },
             },
+            {
+              path: 'inquiries',
+              name: 'inquiries',
+              component: () => import('@/views/InquiriesView.vue'),
+              meta: { auth: true, admin: true },
+            },
           ],
         },
       ],
@@ -76,8 +82,8 @@ router.beforeEach((to) => {
     return { path: '/login', query: { redirect: to.fullPath } }
   }
   const needAdmin = to.matched.some((record) => record.meta.admin)
-  const role = getCachedRole()
-  if (needAdmin && role && role !== 'admin') {
+  const role = getCachedRole() || getRoleFromToken()
+  if (needAdmin && role === 'user') {
     return { path: '/console/detect' }
   }
   if (to.meta.guest && loggedIn) {

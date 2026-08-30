@@ -62,6 +62,72 @@
   flex-shrink: 0;
 }
 
+.user-menu {
+  position: relative;
+}
+
+.user-menu__trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  max-width: 240px;
+  height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.user-menu__name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.user-menu__caret {
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.user-menu__panel {
+  position: fixed;
+  min-width: 180px;
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper);
+  box-shadow: var(--shadow);
+  z-index: 80;
+}
+
+.user-menu__item {
+  display: block;
+  width: 100%;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 14px;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.user-menu__item:hover {
+  background: rgba(62, 224, 197, 0.12);
+}
+
+.user-menu__item--danger {
+  color: #f0a0a0;
+  margin-top: 4px;
+}
+
 .menu-btn {
   display: none;
   width: 44px;

@@ -43,7 +43,26 @@
   color: var(--ink);
 }
 
+.members__table .password-field {
+  margin: 0 0 8px;
+}
+
+.members__table .password-field input {
+  margin-bottom: 0;
+}
+
 .members__table .btn {
   margin-right: 6px;
   margin-bottom: 4px;
+}
+
+.inquiries__lead {
+  color: var(--ink-soft);
+  margin: 0 0 16px;
+}
+
+.inquiries__msg {
+  max-width: 420px;
+  white-space: pre-wrap;
+  word-break: break-word;
 }

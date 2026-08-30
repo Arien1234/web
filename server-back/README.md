@@ -26,12 +26,14 @@ pnpm run start:dev
 | POST | `/api/auth/login` | 登录 |
 | POST | `/api/auth/register` | 注册 |
 | GET | `/api/auth/profile` | 当前用户（需登录） |
-| DELETE | `/api/auth/logout` | 退出 |
+| POST | `/api/auth/logout` | 退出 |
 | GET | `/api/users` | 成员名单（仅管理员） |
 | POST | `/api/users` | 添加成员（仅管理员） |
 | PUT | `/api/users/:id` | 修改成员（仅管理员） |
 | DELETE | `/api/users/:id` | 删除成员（仅管理员） |
-| POST | `/api/inquiries` | 提交官网留言 |
+| POST | `/api/inquiries` | 提交官网留言（公开） |
+| GET | `/api/inquiries` | 留言列表（仅管理员） |
+| DELETE | `/api/inquiries/:id` | 删除留言（仅管理员） |
 | POST | `/api/ai/detect` | 头盔检测（需登录，转发到 Python :8000） |
 
 首次启动若没有管理员，会自动创建：`admin` / `admin123`。

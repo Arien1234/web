@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
-import { createInquiryApi } from '@/api/auth'
+import { createInquiryApi } from '@/api/inquiry'
 import { site } from '@/data/site'
 
 const submitted = ref(false)

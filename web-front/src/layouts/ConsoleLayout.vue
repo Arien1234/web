@@ -1,8 +1,13 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useAuth } from '@/composables/useAuth'
+import { consoleMenu } from '@/data/consoleMenu'
 
-const { profile, isAdmin, loadProfile } = useAuth()
+const { displayName, isAdmin, loadProfile } = useAuth()
+
+const visibleMenu = computed(() =>
+  consoleMenu.filter((item) => !item.adminOnly || isAdmin.value),
+)
 
 onMounted(() => {
   void loadProfile()
@@ -14,14 +19,19 @@ onMounted(() => {
     <header class="page-hero">
       <h1>智能服务工作台</h1>
       <p>
-        你好，{{ profile?.displayName || profile?.username || '用户' }}。
-        <template v-if="isAdmin">你是系统管理员，可以管理注册成员。</template>
-        <template v-else>头盔检测仅登录后可用。</template>
+        你好，{{ displayName || '用户' }}。
+        也可点右上角名字打开功能菜单。
       </p>
     </header>
     <nav class="console-nav">
-      <router-link class="console-nav__link" to="/console/detect">头盔检测</router-link>
-      <router-link v-if="isAdmin" class="console-nav__link" to="/console/members">成员名单</router-link>
+      <router-link
+        v-for="item in visibleMenu"
+        :key="item.path"
+        class="console-nav__link"
+        :to="item.path"
+      >
+        {{ item.label }}
+      </router-link>
     </nav>
     <router-view />
   </div>

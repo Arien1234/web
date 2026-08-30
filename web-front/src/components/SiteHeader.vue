@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
+import UserMenu from '@/components/UserMenu.vue'
 import { useAuth } from '@/composables/useAuth'
 import { navItems, site } from '@/data/site'
 
 const route = useRoute()
-const router = useRouter()
 const open = ref(false)
-const { isLoggedIn, profile, logout, loadProfile, syncFromStorage } = useAuth()
+const { isLoggedIn, loadProfile, syncFromStorage } = useAuth()
 
 watch(
   () => route.fullPath,
@@ -24,11 +24,6 @@ watch(
 
 function isNavActive(path: string) {
   return path === '/' ? route.path === '/' : route.path.startsWith(path)
-}
-
-async function onLogout() {
-  await logout()
-  await router.replace('/')
 }
 </script>
 
@@ -53,12 +48,7 @@ async function onLogout() {
       </nav>
 
       <div class="header-actions">
-        <template v-if="isLoggedIn">
-          <router-link class="nav__link" to="/console/detect">
-            {{ profile?.displayName || profile?.username || '工作台' }}
-          </router-link>
-          <button class="btn btn--ghost btn--small" type="button" @click="onLogout">退出</button>
-        </template>
+        <UserMenu v-if="isLoggedIn" />
         <template v-else>
           <router-link class="btn btn--ghost btn--small" to="/register">注册</router-link>
           <router-link class="btn btn--primary btn--small" to="/login">登录</router-link>

@@ -43,6 +43,6 @@ pnpm dev
 
 浏览器：http://127.0.0.1:5173/login  
 登录后打开：http://127.0.0.1:5173/console/detect  
-系统管理员（`admin`）可在工作台进入「成员名单」管理注册用户。
+点右上角名字打开功能菜单。系统管理员（`admin`）可进入「成员名单」和「联系留言」（官网表单写入 `inquiries` 表）。后续功能在 `web-front/src/data/consoleMenu.ts` 增加一项即可。
 
 克隆后请复制 `server-back/.env.example` 为 `server-back/.env`，并自行安装依赖（不要提交 `.env` 和 `node_modules`）。

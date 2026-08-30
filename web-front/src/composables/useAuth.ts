@@ -1,10 +1,38 @@
 import { computed, ref } from 'vue'
 import { loginApi, logoutApi, profileApi, registerApi } from '@/api/auth'
-import { clearToken, getCachedRole, getToken, setCachedRole, setToken } from '@/utils/token'
+import {
+  clearToken,
+  getCachedDisplayName,
+  getCachedRole,
+  getCachedUserId,
+  getCachedUsername,
+  getRoleFromToken,
+  getToken,
+  getUserIdFromToken,
+  setCachedUser,
+  setToken,
+} from '@/utils/token'
 import type { AuthUser } from '@/types/user'
 
 const token = ref(getToken())
-const profile = ref<AuthUser | null>(null)
+const profile = ref<AuthUser | null>(readCachedProfile())
+
+function readCachedProfile(): AuthUser | null {
+  if (!getToken()) {
+    return null
+  }
+  const username = getCachedUsername()
+  const displayName = getCachedDisplayName()
+  if (!username && !displayName) {
+    return null
+  }
+  return {
+    id: getCachedUserId() || getUserIdFromToken(),
+    username,
+    displayName: displayName || username,
+    role: getCachedRole() || getRoleFromToken() || 'user',
+  }
+}
 
 /** 401 时清内存态，避免 localStorage 已空但顶栏仍认为已登录（或反过来） */
 export function clearSession() {
@@ -29,13 +57,22 @@ function unwrapSession(res: unknown): { token: string; user: AuthUser } {
 export function useAuth() {
   const isLoggedIn = computed(() => Boolean(token.value || getToken()))
   const isAdmin = computed(
-    () => profile.value?.role === 'admin' || getCachedRole() === 'admin',
+    () =>
+      profile.value?.role === 'admin' ||
+      getCachedRole() === 'admin' ||
+      getRoleFromToken() === 'admin',
   )
 
   function syncFromStorage() {
     const stored = getToken()
     if (stored !== token.value) {
       token.value = stored
+    }
+    if (stored && !profile.value) {
+      profile.value = readCachedProfile()
+    }
+    if (!stored) {
+      profile.value = null
     }
   }
 
@@ -55,7 +92,7 @@ export function useAuth() {
 
   function applySession(data: { token: string; user: AuthUser }) {
     setToken(data.token)
-    setCachedRole(data.user.role || 'user')
+    setCachedUser(data.user)
     token.value = data.token
     profile.value = data.user
   }
@@ -67,7 +104,7 @@ export function useAuth() {
     }
     const res = (await profileApi()) as { data: AuthUser }
     profile.value = res.data
-    setCachedRole(res.data.role || 'user')
+    setCachedUser(res.data)
   }
 
   async function logout() {
@@ -86,6 +123,9 @@ export function useAuth() {
     profile,
     isLoggedIn,
     isAdmin,
+    displayName: computed(
+      () => profile.value?.displayName || profile.value?.username || getCachedDisplayName() || '',
+    ),
     login,
     register,
     loadProfile,

@@ -19,11 +19,3 @@ export function profileApi() {
 export function logoutApi() {
   return http.post('/auth/logout')
 }
-
-export function createInquiryApi(payload: {
-  name: string
-  company: string
-  message: string
-}) {
-  return http.post('/inquiries', payload)
-}

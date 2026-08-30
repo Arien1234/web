@@ -5,6 +5,7 @@ defineProps<{
   id: string
   autocomplete?: string
   required?: boolean
+  minlength?: number
 }>()
 
 const password = defineModel<string>({ required: true })
@@ -19,6 +20,7 @@ const visible = ref(false)
       :type="visible ? 'text' : 'password'"
       :autocomplete="autocomplete"
       :required="required !== false"
+      :minlength="minlength"
     />
     <button class="password-field__toggle" type="button" @click="visible = !visible">
       {{ visible ? '隐藏' : '显示' }}

@@ -114,7 +114,12 @@ onMounted(reload)
       <label for="m-display">显示名</label>
       <input id="m-display" v-model="createForm.displayName" />
       <label for="m-password">初始密码</label>
-      <PasswordField id="m-password" v-model="createForm.password" autocomplete="new-password" />
+      <PasswordField
+        id="m-password"
+        v-model="createForm.password"
+        autocomplete="new-password"
+        :minlength="6"
+      />
       <button class="btn btn--primary" type="submit">添加到名单</button>
     </form>
 
@@ -142,6 +147,7 @@ onMounted(reload)
                   v-model="editForm.password"
                   autocomplete="new-password"
                   :required="false"
+                  :minlength="6"
                 />
               </template>
               <template v-else>{{ row.displayName }}</template>
