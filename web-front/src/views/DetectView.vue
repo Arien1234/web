@@ -7,7 +7,7 @@ const fileInput = ref<HTMLInputElement | null>(null)
 const originUrl = ref('')
 const resultUrl = ref('')
 const detections = ref<DetectionItem[]>([])
-const infoText = ref('请选择图片后开始检测')
+const infoText = ref('请选择图片，开始一次视觉检测')
 const loading = ref(false)
 const error = ref('')
 
@@ -78,7 +78,7 @@ function formatInfo(list: DetectionItem[], fallback: string) {
       <button class="btn btn--primary" type="button" :disabled="loading" @click="pickFile">
         {{ loading ? '检测中…' : '选择图片' }}
       </button>
-      <span class="detect__hint">支持 jpg / png / bmp，图片将发往 Python YOLO 服务</span>
+      <span class="detect__hint">支持 jpg / png / bmp。当前模型用于安全帽识别，更多视觉能力将陆续加入工作台</span>
     </div>
 
     <div class="detect__frames">
@@ -90,7 +90,7 @@ function formatInfo(list: DetectionItem[], fallback: string) {
         </div>
       </figure>
       <figure class="detect__frame">
-        <figcaption>检测结果</figcaption>
+        <figcaption>AI 检测结果</figcaption>
         <div class="detect__canvas">
           <img v-if="resultUrl" :src="resultUrl" alt="YOLO 检测结果" />
           <span v-else>{{ loading ? '推理中…' : '等待检测' }}</span>

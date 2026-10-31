@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { reactive, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import BrandLogo from '@/components/BrandLogo.vue'
 import PasswordField from '@/components/PasswordField.vue'
 import { useAuth } from '@/composables/useAuth'
 
@@ -32,9 +33,10 @@ async function onSubmit() {
 <template>
   <div class="container inner-page">
     <div class="login-box">
-      <p class="hero__kicker">ACCOUNT</p>
+      <BrandLogo size="lg" />
+      <p class="hero__kicker">LANZHI AI</p>
       <h1>登录澜知</h1>
-      <p class="login-box__lead">使用账号进入智能服务工作台。也可先注册新账号。</p>
+      <p class="login-box__lead">登录后进入 AI 服务工作台，使用已开放的能力，也可先注册新账号。</p>
       <form class="contact-form login-form" @submit.prevent="onSubmit">
         <p v-if="error" class="form-error">{{ error }}</p>
         <label for="username">用户名</label>

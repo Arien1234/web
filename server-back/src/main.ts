@@ -12,9 +12,10 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  const port = process.env.PORT ?? 3000;
-  await app.listen(port);
-  console.log(`[server] http://127.0.0.1:${port}/api`);
+  const port = Number(process.env.PORT ?? 3000);
+  // Docker 内必须监听所有网卡，不能只绑 127.0.0.1
+  await app.listen(port, '0.0.0.0');
+  console.log(`[server] http://0.0.0.0:${port}/api`);
 }
 
 bootstrap();

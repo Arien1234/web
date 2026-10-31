@@ -57,6 +57,18 @@ const router = createRouter({
               meta: { auth: true },
             },
             {
+              path: 'attendance',
+              name: 'attendance',
+              component: () => import('@/views/FaceCheckinView.vue'),
+              meta: { auth: true },
+            },
+            {
+              path: 'faces',
+              name: 'faces',
+              component: () => import('@/views/FaceLibraryView.vue'),
+              meta: { auth: true, admin: true },
+            },
+            {
               path: 'members',
               name: 'members',
               component: () => import('@/views/MembersView.vue'),

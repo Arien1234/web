@@ -28,11 +28,36 @@
   font-weight: 700;
 }
 
-.brand__mark {
-  width: 12px;
-  height: 28px;
-  border-radius: 99px;
-  background: linear-gradient(180deg, var(--accent), var(--accent-2));
+.brand__name {
+  letter-spacing: 0.04em;
+}
+
+.brand-logo {
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+  background: #d8c8ff;
+  box-shadow:
+    0 0 0 1px rgba(232, 241, 251, 0.14),
+    0 10px 24px rgba(92, 64, 180, 0.32);
+}
+
+.brand-logo--sm {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+}
+
+.brand-logo--md {
+  width: 72px;
+  height: 72px;
+  border-radius: 18px;
+}
+
+.brand-logo--lg {
+  width: 96px;
+  height: 96px;
+  border-radius: 22px;
 }
 
 .nav {
@@ -150,8 +175,15 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.site-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
 @media (max-width: 800px) {

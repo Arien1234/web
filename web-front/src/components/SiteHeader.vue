@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
+import BrandLogo from '@/components/BrandLogo.vue'
 import UserMenu from '@/components/UserMenu.vue'
 import { useAuth } from '@/composables/useAuth'
 import { navItems, site } from '@/data/site'
@@ -31,8 +32,8 @@ function isNavActive(path: string) {
   <header class="site-header">
     <div class="site-header__inner">
       <router-link class="brand" to="/">
-        <span class="brand__mark"></span>
-        {{ site.name }}
+        <BrandLogo size="sm" />
+        <span class="brand__name">{{ site.name }}</span>
       </router-link>
 
       <nav class="nav" :class="{ 'is-open': open }" aria-label="主导航">

@@ -4,8 +4,9 @@ import { AppController } from './app.controller';
 import { AiModule } from './ai/ai.module';
 import { AuthModule } from './auth/auth.module';
 import { DatabaseModule } from './database/database.module';
+import { FaceModule } from './face/face.module';
 import { InquiryModule } from './inquiry/inquiry.module';
-
+import { StatsModule } from './stats/stats.module';
 import { UsersModule } from './users/users.module';
 
 @Module({
@@ -14,7 +15,9 @@ import { UsersModule } from './users/users.module';
     DatabaseModule,
     AuthModule,
     InquiryModule,
+    StatsModule,
     AiModule,
+    FaceModule,
     UsersModule,
   ],
   controllers: [AppController],

@@ -7,7 +7,9 @@ export type ConsoleMenuItem = {
 }
 
 export const consoleMenu: ConsoleMenuItem[] = [
-  { path: '/console/detect', label: '头盔检测' },
+  { path: '/console/detect', label: '视觉检测' },
+  { path: '/console/attendance', label: '人脸打卡' },
+  { path: '/console/faces', label: '人脸库', adminOnly: true },
   { path: '/console/members', label: '成员名单', adminOnly: true },
   { path: '/console/inquiries', label: '联系留言', adminOnly: true },
 ]

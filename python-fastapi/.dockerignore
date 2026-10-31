@@ -1,0 +1,9 @@
+.venv
+venv
+__pycache__
+*.pyc
+.pytest_cache
+ultralytics
+.git
+*.log
+.DS_Store

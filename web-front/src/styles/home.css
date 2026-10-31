@@ -9,11 +9,18 @@
   align-items: center;
 }
 
+.hero__brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 18px;
+}
+
 .hero__kicker {
   color: var(--accent);
   letter-spacing: 0.28em;
   font-size: 12px;
-  margin: 0 0 16px;
+  margin: 0;
 }
 
 .hero__title {
@@ -56,9 +63,15 @@
   font-family: var(--serif);
 }
 
+.hero__row--visits strong {
+  color: var(--accent);
+  font-size: 28px;
+  letter-spacing: 0.04em;
+}
+
 .stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 16px;
 }
 

@@ -20,11 +20,11 @@
 ## 本地运行（三个终端）
 
 1. MySQL 已启动并建表。
-2. Python（先准备 `best.pt`，默认路径见 `python-fastapi/README.md`）：
+2. Python（会自动使用 `python-fastapi/.venv`，先准备 `best.pt`）：
 
 ```powershell
 cd d:\web\python-fastapi
-python main.py
+.\start.ps1
 ```
 
 3. Nest：

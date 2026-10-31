@@ -1,0 +1,156 @@
+.camera__stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #071018;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--line);
+}
+
+.camera__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+  opacity: 0;
+}
+
+.camera__stage.is-on .camera__video {
+  opacity: 1;
+}
+
+.camera__mask {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(ellipse 36% 50% at 50% 45%, transparent 62%, rgba(5, 10, 18, 0.78) 64%);
+}
+
+.camera__oval {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  width: 36%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid rgba(62, 224, 197, 0.9);
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+}
+
+.camera__hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 14px;
+  margin: 0;
+  text-align: center;
+  color: #d7efe8;
+  font-size: 13px;
+  pointer-events: none;
+}
+
+.camera__canvas {
+  display: none;
+}
+
+.face-page {
+  display: grid;
+  gap: 20px;
+}
+
+.face-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px 22px 20px;
+}
+
+.face-card__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.face-card__head h2,
+.face-card h3 {
+  margin: 0 0 6px;
+}
+
+.face-card__head p {
+  margin: 0;
+  color: var(--ink-soft);
+  max-width: 640px;
+}
+
+.face-badge {
+  flex-shrink: 0;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+
+.face-badge.is-on {
+  background: rgba(62, 224, 197, 0.16);
+  color: var(--accent);
+}
+
+.face-badge.is-off {
+  background: rgba(232, 241, 251, 0.08);
+  color: var(--ink-soft);
+}
+
+.face-stage {
+  position: relative;
+}
+
+.face-result {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #071018;
+}
+
+.face-result img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.face-page__actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.face-page .btn--primary {
+  margin-top: 0;
+}
+
+.face-page__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.face-page__select {
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: var(--paper-deep);
+  color: var(--ink);
+}
+
+@media (max-width: 800px) {
+  .face-card__head {
+    flex-direction: column;
+  }
+}

@@ -17,10 +17,9 @@ onMounted(() => {
 <template>
   <div class="container inner-page">
     <header class="page-hero">
-      <h1>智能服务工作台</h1>
+      <h1>AI 服务工作台</h1>
       <p>
-        你好，{{ displayName || '用户' }}。
-        也可点右上角名字打开功能菜单。
+        你好，{{ displayName || '用户' }}。在此使用已开放的 AI 能力，点右上角名字可切换功能。
       </p>
     </header>
     <nav class="console-nav">

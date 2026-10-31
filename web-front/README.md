@@ -21,7 +21,9 @@ pnpm dev
 | `/contact` | 联系我们（留言写入数据库） |
 | `/login` | 登录（密码可点「显示」） |
 | `/register` | 注册 |
-| `/console/detect` | 登录后的头盔检测（原图 / YOLO 结果） |
+| `/console/detect` | 登录后的视觉检测 |
+| `/console/attendance` | 人脸打卡（需摄像头） |
+| `/console/faces` | 系统管理员：人脸库与打卡记录 |
 | `/console/members` | 系统管理员：注册成员名单 |
 
 默认登录账号：`admin` / `admin123`（由后端首次启动写入 MySQL）。

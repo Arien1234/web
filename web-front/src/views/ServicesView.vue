@@ -5,8 +5,10 @@ import { services } from '@/data/site'
 <template>
   <div class="container inner-page">
     <header class="page-hero">
-      <h1>智能服务</h1>
-      <p>客服、知识助手与流程助手可以单独启用，数据和权限仍由你方系统掌控。</p>
+      <h1>AI 服务</h1>
+      <p>
+        我们把 AI 做成可登录的服务，而不是一次性演示。视觉智能、场景定制、系统接入可以按你的节奏启用，数据和权限仍由你方掌控。
+      </p>
     </header>
 
     <div class="service-grid">
